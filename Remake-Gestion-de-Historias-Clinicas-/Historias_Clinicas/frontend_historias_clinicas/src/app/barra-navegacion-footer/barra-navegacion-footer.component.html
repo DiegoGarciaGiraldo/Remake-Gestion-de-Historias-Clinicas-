@@ -1,0 +1,61 @@
+<nav class="diseño-barras">
+
+    <div id="menu-izquierda">
+
+        <a href="">Clinica</a>
+
+        <span> |</span>
+
+        <!-- navegacion del paciente-->
+
+        <div *ngIf="tipoUsuario === 'paciente'"class="paciente">
+
+            <a href="/solicitar-cita" >Solicitar Cita</a>
+            <a href="/ver-citas" >Ver mis citas</a>
+            <a href="/actualizar-paciente" >Mi perfil</a>
+
+            
+           
+        </div>
+        
+
+        <!-- navegacion del medico-->
+
+        <div *ngIf="tipoUsuario === 'medico'">
+
+            <a href="/lista-pacientes" >Lista de pacientes</a>
+
+        </div>
+        
+
+        <!-- navegacion del recepcionista-->
+
+        <div *ngIf="tipoUsuario === 'recep'">
+  
+            <a href="/lista-citas"  >Citas</a>
+            <a href="/agendar-citas"  >Agendar Citas</a>
+
+        </div>
+    </div>
+
+    <div class="menu-derecha" *ngIf="tipoUsuario === 'paciente'||tipoUsuario === 'recep' || tipoUsuario === 'medico'" > 
+        <a href="">Cerrar sesión</a>
+   </div>
+    
+
+
+</nav>
+
+<!--contenido rotativo-->
+
+<div id="contenido-rotativo">
+    <router-outlet></router-outlet>
+</div>
+
+
+
+<footer class="diseño-barras" >
+    
+    &copy; 2024 ClinicaApp - sistema de gestión de Historias Clinicas
+
+</footer>
